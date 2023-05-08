@@ -15,11 +15,13 @@ To run the program, follow these steps:
 1. Open a terminal or command prompt.
 2. Navigate to the directory where the project files are located.
 3. Compile the Java source code by executing the following command:
-
-   ```bash
-   javac PizzaDriver.java
-   java PizzaDriver
-   ```
+```bash
+javac PizzaDriver.java
+```
+4. Once the compilation is successful, run the program using the following command:
+```bash
+java PizzaDriver
+```
 
 ## Contributing
    Contributions to the Pizza Ordering Program are welcome! If you would like to contribute, please follow these guidelines:
@@ -38,4 +40,4 @@ To maintain consistency and readability, please adhere to the following coding s
 * Add comments to explain the purpose of the code and any complex logic.
 
 ## Contact
-If you have any questions or suggestions regarding the Pizza Ordering Program, feel free to reach out to Luis Rivas at Lrivas@chapman.edu. 
+If you have any questions or suggestions regarding the Pizza Ordering Program, feel free to reach out to Luis Rivas at Lrivas@chapman.edu.
