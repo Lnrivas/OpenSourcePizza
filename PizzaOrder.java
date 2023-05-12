@@ -7,8 +7,9 @@
  * The purpose of this class is to create a PizzaOrder which is an array of type Pizza
  * It also calculates the total cost of the order, utilizing the calcCost() method from the Pizza class
  * Note: I added the instance variable pizzasCurrentlyInOrder so the addPizza() method knows when the order is already full.
- * @version 1.0
+ * @version 1.1
  */
+
 public class PizzaOrder {
   /**
     * An array holding all the pizzas in the order
@@ -31,7 +32,7 @@ public class PizzaOrder {
     */
   public PizzaOrder() {
     m_order = new Pizza [1];
-    m_order[0] = new Pizza("small", 1, 0, 0);
+    m_order[0] = new Pizza("small", 1, 0, 0, 0);
     m_numPizzas = 1;
   }
 

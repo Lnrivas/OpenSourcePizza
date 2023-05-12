@@ -6,7 +6,7 @@
  * Mastery	Project 2:	More Classes - PART 1: Pizza
  * The purpose of this program is to create a Pizza class conatining it's size, number of cheese toppings, number of pepperoni toppings, and number of veggie toppings.
  * It also calculates the cost of a pizza, based on its size and number of toppings.
- * @version 1.0
+ * @version 1.1
  */
 public class Pizza {
   /**
@@ -30,6 +30,11 @@ public class Pizza {
   private int veggieToppings;
 
   /**
+   * The number of garlic slices as toppings
+   */
+  private int garlicToppings;
+
+  /**
     * Default constructor initializing size to "small" and all toppings to 0.
     */
   public Pizza() {
@@ -37,6 +42,7 @@ public class Pizza {
     cheeseToppings = 0;
     pepperoniToppings = 0;
     veggieToppings = 0;
+    garlicToppings = 0;
   }
 
   /**
@@ -47,11 +53,12 @@ public class Pizza {
     * @param pepperoni number of pepperoni toppings
     * @param veggie number of veggie toppings
     */
-  public Pizza(String size, int cheese, int pepperoni, int veggie) {
+  public Pizza(String size, int cheese, int pepperoni, int veggie, int garlic) {
     pizzaSize = size;
     cheeseToppings = cheese;
     pepperoniToppings = pepperoni;
     veggieToppings = veggie;
+    garlicToppings = garlic;
   }
 
   /**
@@ -63,6 +70,7 @@ public class Pizza {
     this.cheeseToppings = pizza.cheeseToppings;
     this.pepperoniToppings = pizza.pepperoniToppings;
     this.veggieToppings = pizza.veggieToppings;
+    this.garlicToppings = pizza.garlicToppings;
   }
 
   /**
@@ -130,6 +138,22 @@ public class Pizza {
   }
 
   /**
+    * Accessor method returning garlicToppings.
+    * @return an int value garlicToppings, the number of garlic slice toppings
+    */
+    public int getGarlicToppings() {
+      return garlicToppings;
+    }
+
+    /**
+    * Mutator method to set garlicToppings to garlic.
+    * @param garlic the number of garlic toppings
+    */
+    public void setGarlicToppings(int garlic) {
+      garlicToppings = garlic;
+    }
+
+  /**
     * Calculates and returns the cost of the pizza based on the size and number of toppings.
     * small = $10, medium = $12, large = $14
     * Each topping adds $2 to the cost.
@@ -137,14 +161,14 @@ public class Pizza {
     */
   public double calcCost() {
     if (pizzaSize.equals("small")) {
-      return 10.0 + ((cheeseToppings + pepperoniToppings + veggieToppings) * 2);
+      return 10.0 + ((cheeseToppings + pepperoniToppings + veggieToppings + garlicToppings) * 2);
 
     }
     else if (pizzaSize.equals("medium")) {
-      return 12.0 + ((cheeseToppings + pepperoniToppings + veggieToppings) * 2);
+      return 12.0 + ((cheeseToppings + pepperoniToppings + veggieToppings + garlicToppings) * 2);
     }
     else {
-      return 14.0 + ((cheeseToppings + pepperoniToppings + veggieToppings) * 2);
+      return 14.0 + ((cheeseToppings + pepperoniToppings + veggieToppings + garlicToppings) * 2);
     }
   }
 
@@ -154,6 +178,7 @@ public class Pizza {
     */
   public String toString() {
     return ("A " + pizzaSize + " pizza with " + cheeseToppings + " cheese topping(s), " + pepperoniToppings +
-            " pepperoni topping(s), and " + veggieToppings + " veggie topping(s) costs $" + calcCost());
+            " pepperoni topping(s), " + veggieToppings + " veggie topping(s) ,and " + garlicToppings +
+            " garlic topping(s) costs $" + calcCost());
   }
 }

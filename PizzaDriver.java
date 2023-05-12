@@ -7,7 +7,7 @@
  * The purpose of this class is to have the main() method which tests the methods from the Pizza and PizzaOrder classes.
  * It creates 4 Pizzas and attempts to add them all to a PizzaOrder.
  * It then prints the PizzaOrder.
- * @version 1.0
+ * @version 1.1
  */
 public class PizzaDriver {
 
@@ -19,15 +19,13 @@ public class PizzaDriver {
     * @param args command-line arguments
     */
   public static void main(String [] args) {
-    Pizza pizza1 = new Pizza ("small", 1, 0, 1); // Code to create a small pizza, 1 cheese, 1 veggie
-    Pizza pizza2 = new Pizza ("large", 2, 2, 0); // Code to create a large pizza, 2 cheese, 2 pepperoni
-    Pizza pizza3 = new Pizza(pizza2); // Same as pizza 2, use copy constructor
-    Pizza pizza4 = new Pizza(pizza1); // Same as pizza 1, use copy constructor
+    Pizza pizza1 = new Pizza ("small", 1, 0, 1, 0); // Code to create a small pizza, 1 cheese, 1 veggie, 0 garlic
+    Pizza pizza2 = new Pizza ("large", 2, 2, 0, 1); // Code to create a large pizza, 2 cheese, 2 pepperoni, 1 garlic
+    Pizza pizza5 = new Pizza ("medium", 1, 3, 0, 3); //Code to create a medium pizza, 1 cheese, 3 pepperoni, 3 garlic
     PizzaOrder order = new PizzaOrder(3); // Code to create an order of THREE pizzas
     System.out.println(order.addPizza(pizza1)); // add pizza1 to the order
     System.out.println(order.addPizza(pizza2)); // add pizza2 to the order
-    System.out.println(order.addPizza(pizza3)); // add pizza3 to the order
-    System.out.println(order.addPizza(pizza4)); // add pizza4 to the order – what happens here?
+    System.out.println(order.addPizza(pizza5));
     System.out.println(order); // Should call order’s toString method
   }
 }
