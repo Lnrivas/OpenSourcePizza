@@ -31,7 +31,7 @@ public class PizzaOrder {
     */
   public PizzaOrder() {
     m_order = new Pizza [1];
-    m_order[0] = new Pizza("small", 1, 0, 0);
+    m_order[0] = new Pizza("small", 1, 0, 0, 0);
     m_numPizzas = 1;
   }
 
