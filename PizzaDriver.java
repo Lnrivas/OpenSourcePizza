@@ -9,23 +9,42 @@
  * It then prints the PizzaOrder.
  * @version 1.1
  */
-public class PizzaDriver {
+import java.util.Scanner;
 
-  /**
-    * Creates 4 pizzas. The first 2 with constructors, the other 2 with copy constructors of the Pizza class.
-    * Creates a PizzaOrder for 3 pizzas using a PizzaOrder constructor.
-    * Attempts to add the 4 pizzas to the order using the addPizza() method from the PizzaOrder class. The 4th Pizza won't be added because the order will already be full.
-    * Prints the PizzaOrder.
-    * @param args command-line arguments
-    */
+public class PizzaDriver {
   public static void main(String [] args) {
-    Pizza pizza1 = new Pizza ("small", 1, 0, 1, 0); // Code to create a small pizza, 1 cheese, 1 veggie, 0 garlic
-    Pizza pizza2 = new Pizza ("large", 2, 2, 0, 1); // Code to create a large pizza, 2 cheese, 2 pepperoni, 1 garlic
-    Pizza pizza5 = new Pizza ("medium", 1, 3, 0, 3); //Code to create a medium pizza, 1 cheese, 3 pepperoni, 3 garlic
-    PizzaOrder order = new PizzaOrder(3); // Code to create an order of THREE pizzas
-    System.out.println(order.addPizza(pizza1)); // add pizza1 to the order
-    System.out.println(order.addPizza(pizza2)); // add pizza2 to the order
-    System.out.println(order.addPizza(pizza5));
-    System.out.println(order); // Should call order’s toString method
+
+    Scanner input = new Scanner(System.in);
+
+    try {
+      System.out.println("How many pizzas would you like to order?");
+      int numPizzas = input.nextInt();
+      input.nextLine(); // consume the newline character left by nextInt()
+
+      PizzaOrder order = new PizzaOrder(numPizzas);
+
+      for (int i = 1; i <= numPizzas; i++) {
+        System.out.printf("Enter details for pizza %d (size, cheese, pepperoni, veggies, garlic):%n", i);
+        String size = input.nextLine();
+        int cheese = input.nextInt();
+        int pepperoni = input.nextInt();
+        int veggies = input.nextInt();
+        int garlic = input.nextInt();
+        input.nextLine(); // consume the newline character left by nextInt()
+
+        Pizza pizza = new Pizza (size, cheese, pepperoni, veggies, garlic);
+
+        if (order.addPizza(pizza) == -1) {
+          System.out.printf("Error: Could not add pizza %d to order.%n", i);
+        }
+      }
+
+      System.out.println(order);
+    } catch (Exception e) {
+      System.out.println("Error: Invalid input.");
+    } finally {
+      input.close();
+    }
   }
 }
+
